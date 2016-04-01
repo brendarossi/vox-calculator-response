@@ -8,4 +8,5 @@ define "get-user-input", ["jquery"], ($) ->
         rawFormInput = $('#user-income').serializeArray()
         input[field["name"]] = field["value"] for field in rawFormInput
         
+        console.log input
         callback.call input

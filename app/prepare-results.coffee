@@ -24,9 +24,15 @@ define "prepare-results", ["./data"], (data) ->
     
       taxNow = data["current"][marriageAndChildStatus][bracketIndex].t
       taxUnderCandidate = data[candidate][marriageAndChildStatus][bracketIndex].t
-      economicsThing = data["average"][marriageAndChildStatus][bracketIndex].t
+      eci = data["average"][marriageAndChildStatus][bracketIndex].t
     
       figures.payDifference = taxUnderCandidate - taxNow
-      figures.taxRate = Math.round(taxUnderCandidate / economicsThing * 1e3) / 10
+      figures.taxRate = Math.round(taxUnderCandidate / eci * 1e3) / 10
+      
+      figures.changeInIncome = (eci - taxNow) - (eci - taxUnderCandidate)
+      
+      #if candidate is "sanders"
+        
+      
       
     results
